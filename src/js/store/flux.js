@@ -12,7 +12,9 @@ const getState = ({ getStore, getActions, setStore }) => {
 					background: "white",
 					initial: "white"
 				}
-			]
+			],
+			info: "Mensagem de Flux.js",
+			contactApiUrl : "https://playground.4geeks.com/contact/"
 		},
 		actions: {
 			// Use getActions to call a function within a fuction
@@ -37,6 +39,22 @@ const getState = ({ getStore, getActions, setStore }) => {
 
 				//reset the global store
 				setStore({ demo: demo });
+			},
+			changeInfo: () => {
+				setStore({ info: "mudar uma ação!"})
+			},
+			getAllContacts: () => {
+				const store = getStore()
+				fetch(store.contactApiUrl + "agendas/vchoupina/contacts")
+				.then((response)=>{
+					console.log(response)
+					return response.json()
+				})
+				.then((data)=>{
+					console.log(data);
+					setStore({contacts: data})
+				})
+				.catch(()=>{})
 			}
 		}
 	};

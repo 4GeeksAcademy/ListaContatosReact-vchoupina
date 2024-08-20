@@ -6,6 +6,8 @@ import { Home } from "./views/home";
 import { Demo } from "./views/demo";
 import { Single } from "./views/single";
 import NewContact from "./views/NewContact";
+import Card from "./component/Card";
+import Contact from "./component/Contact";
 import injectContext from "./store/appContext";
 
 import { Navbar } from "./component/navbar";
